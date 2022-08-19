@@ -1,0 +1,50 @@
+<div *ngIf="!isSearchApplied; else searchResult">
+<form (ngSubmit)="searchCars()" [formGroup]="carForm" autocomplete="off" class="carsForm">
+    <div>
+        <mat-form-field  appearance="outline">
+            <mat-label>Pick-up Location</mat-label>
+            <input matInput formControlName="location">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row"  fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="45" appearance="outline">
+                <mat-label>Pick-up Date </mat-label>
+                <input matInput formControlName="pickDate"  [min]="startDate.value" [matDatepicker]="pickupDate" (dateChange)="onDateChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="pickupDate"></mat-datepicker-toggle>
+                <mat-datepicker #pickupDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="45" appearance="outline">
+            <mat-label>Drop-off Date </mat-label>
+            <input matInput formControlName="dropDate"  [min]="dropOffStart"  [matDatepicker]="dropOffDate">
+            <mat-datepicker-toggle matSuffix [for]="dropOffDate"></mat-datepicker-toggle>
+            <mat-datepicker #dropOffDate></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row"  fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="45"  appearance="outline">
+                <mat-label>Pick-up Time </mat-label>
+                <input matInput formControlName="pickTime" type="time">
+        </mat-form-field>    
+        <mat-form-field fxFlex="45" appearance="outline">
+            <mat-label>Drop-off Time </mat-label>
+            <input matInput formControlName="dropTime" type="time">
+        </mat-form-field>
+    </div>
+   <div>
+        <mat-form-field  appearance="outline">
+            <mat-label>Age of Driver</mat-label>
+            <mat-select formControlName="driverAge" required>
+                <mat-option *ngFor="let age of ageGroups" [value]="age">
+                  {{age}}
+                </mat-option>
+            </mat-select>
+            <!-- <input matInput formControlName="driverAge"> -->
+        </mat-form-field>
+   </div>
+  <button>Search Rental Cars</button>
+</form>
+</div>
+
+<ng-template #searchResult>
+    <app-cars-result [searchData]="formData" [carsData]="carsData"></app-cars-result>
+</ng-template>

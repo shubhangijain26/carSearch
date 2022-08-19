@@ -1,0 +1,46 @@
+.main {
+    background-color: #efecec;
+}
+.carNumber {
+    padding: 15px 5px 5px 20px;
+}
+.car-card {
+    margin-bottom: 8px;
+  }
+
+.success{ 
+      color: #23b06f;
+      font-weight: 700; 
+}
+
+.bold {
+     font-weight: 700;     
+}
+
+.cardHead{
+    display: flex;
+}
+
+img{
+    align-self: start;
+}
+
+.mat-card-title {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mat-card-subtitle {
+    color: black;
+}
+
+.mat-icon {
+    margin-top: 15px;
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+
+  
+ 

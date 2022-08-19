@@ -1,0 +1,17 @@
+mat-form-field {
+    width: 100%;
+  }
+
+  .carsForm {
+      margin: 10px;
+  }
+
+  button {
+      width: 100%;
+      justify-content: center;
+  }
+
+  /* 'X' button for resetting/clearing time */
+input[type=time]::-webkit-clear-button {
+    display: none;
+  }

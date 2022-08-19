@@ -1,0 +1,31 @@
+<div class="main">
+    <div class="carNumber">{{ carsData.length }} cars found</div>
+    <div *ngFor="let car of carsData">
+        <mat-card class="car-card">
+            <mat-card-title-group class="cardHead">
+                <img mat-card-sm-image src="{{ car.vehicle.image}}" >
+                <mat-card-title>{{ car.vehicle.type}}</mat-card-title>
+                <mat-card-subtitle>
+                    {{ car.vehicle.name}}
+                    <p>
+                        <mat-icon>people_outline</mat-icon> {{ car.vehicle.specifications.passengerCapacity}}
+                        <mat-icon>work_outline</mat-icon> {{ car.vehicle.specifications.baggageCapacity}}
+                        <mat-icon *ngIf="car.unlimitedMileage">timelapse</mat-icon> Unlimited Miles
+                    </p>
+                </mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
+                <span class="success">Free Cancellation</span> until {{ car.cancellationDetails.freeCancellationEndDate}}
+                <hr>
+                <p>
+                    <span class="success">${{ car.fare.perDay }}</span> avg/day
+                </p>
+                <p>
+                    Total (23 days )<span class="bold"> ${{ car.fare.totalAmount }}</span>
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <button (click)="applySort()">Sort</button>
+
+</div>

@@ -1,0 +1,9 @@
+<label id="example-radio-group-label">Pick your favorite season</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  >
+  <mat-radio-button class="example-radio-button" *ngFor="let sort of sortOptions;" [value]="sort.name"  (change)="radioChange($event)" [checked]="sort.checked">
+    {{sort.name}}
+  </mat-radio-button>
+</mat-radio-group>
